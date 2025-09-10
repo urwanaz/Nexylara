@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexy Lara – Where Elegance Meets Everyday Style</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom font for elegance */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfaf6;
+            /* Light cream background */
+            color: #333;
+        }
+
+        .payment-methods {
+            display: none;
+        }
+
+        .payment-methods.active {
+            display: block;
+        }
+
+        /* Custom styles for Lucide icons */
+        .icon {
+            display: inline-block;
+            width: 1.25em;
+            height: 1.25em;
+            stroke-width: 2;
+            stroke: currentColor;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm py-4 px-6 md:px-12 sticky top-0 z-50 rounded-b-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-pink-600 tracking-wide">Nexy Lara</a>
+        </nav>
+    </header>
+
+    <!-- Categories Section -->
+    <section id="categories"
+        class="py-16 md:py-24 bg-pink-50 rounded-lg shadow-md mx-4 md:mx-auto my-8 max-w-6xl px-6 md:px-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+                Categories We <span class="text-pink-600">Offer</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <a href="#bridal"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                    <img src="br.jpg" alt="Bridal Wear" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Bridal Wear</h3>
+                    </div>
+                </a>
+                <a href="#casual"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                    <img src="causual.jpg" alt="Casual Wear" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Casual Wear</h3>
+                    </div>
+                </a>
+                <a href="#western"
+                    class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                    <img src="was.jpg" alt="Western Outfits" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Western Outfits</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Listings Section -->
+    <section id="product-listings"
+        class="py-16 md:py-24 bg-white rounded-lg shadow-md mx-4 md:mx-auto my-8 max-w-6xl px-6 md:px-12 hidden">
+        <div class="container mx-auto text-center">
+            <h2 id="category-title" class="text-3xl md:text-4xl font-bold text-gray-800 mb-12"></h2>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Account Creation Form -->
+    <div id="account-form" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h3 class="text-lg font-semibold mb-4">Create Account</h3>
+            <form id="account-creation">
+                <input type="text" name="name" placeholder="Full Name" class="w-full p-2 mb-2 border rounded" required>
+                <input type="email" name="email" placeholder="Email" class="w-full p-2 mb-2 border rounded" required>
+                <input type="password" name="password" placeholder="Password" class="w-full p-2 mb-2 border rounded"
+                    required>
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Submit</button>
+                <button type="button" id="close-account-form"
+                    class="mt-2 w-full bg-gray-600 text-white px-4 py-2 rounded-full hover:bg-gray-700">Close</button>
+            </form>
+        </div>
+    </div>
+    <!-- About Section -->
+    <section class="py-16 md:py-24 bg-white rounded-lg shadow-md mx-4 md:mx-auto my-8 max-w-6xl px-6 md:px-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
+                Redefining Your <span class="text-pink-600">Wardrobe</span>
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                Whether you're a bride-to-be, a fashion lover, or someone looking for affordable daily outfits, Nexy Lara
+                has something for every mood, moment, and personality. From minimal elegance to bold statements,
+                our pieces are made with quality, comfort, and style in mind.
+            </p>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="p-6 bg-pink-50 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1">
+                    <i data-lucide="heart" class="w-10 h-10 text-pink-600 mx-auto mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Curated Collections</h3>
+                    <p class="text-gray-600">Handpicked styles for every occasion.</p>
+                </div>
+                <div
+                    class="p-6 bg-purple-50 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1">
+                    <i data-lucide="gem" class="w-10 h-10 text-purple-600 mx-auto mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Premium Quality</h3>
+                    <p class="text-gray-600">Exceptional materials at affordable prices.</p>
+                </div>
+                <div
+                    class="p-6 bg-green-50 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1">
+                    <i data-lucide="shield-check" class="w-10 h-10 text-green-600 mx-auto mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Secure Shopping</h3>
+                    <p class="text-gray-600">Safe & secure checkout with peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us"
+        class="py-16 md:py-24 bg-white rounded-lg shadow-md mx-4 md:mx-auto my-8 max-w-6xl px-6 md:px-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+                Why Choose <span class="text-pink-600">Nexy Lara?</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="p-6 bg-pink-50 rounded-xl shadow-sm flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-1">
+                    <i data-lucide="check-circle" class="w-10 h-10 text-pink-600 mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Handpicked Collections</h3>
+                    <p class="text-gray-600">Carefully selected for every occasion and style.</p>
+                </div>
+                <div
+                    class="p-6 bg-purple-50 rounded-xl shadow-sm flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-1">
+                    <i data-lucide="tag" class="w-10 h-10 text-purple-600 mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Affordable Prices</h3>
+                    <p class="text-gray-600">Premium quality without breaking the bank.</p>
+                </div>
+                <div
+                    class="p-6 bg-green-50 rounded-xl shadow-sm flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-1">
+                    <i data-lucide="lock" class="w-10 h-10 text-green-600 mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Secure Shopping</h3>
+                    <p class="text-gray-600">Shop with confidence, your data is safe.</p>
+                </div>
+                <div
+                    class="p-6 bg-yellow-50 rounded-xl shadow-sm flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-1">
+                    <i data-lucide="award" class="w-10 h-10 text-yellow-600 mb-4 icon"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">100% Satisfaction</h3>
+                    <p class="text-gray-600">Your happiness is our top priority, guaranteed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="shop"
+        class="py-16 md:py-24 bg-gradient-to-r from-pink-600 to-purple-600 text-white text-center rounded-lg shadow-xl mx-4 md:mx-auto my-8 max-w-6xl px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Redefine Your Wardrobe?</h2>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+                Start your fashion journey with Nexy Lara today and discover styles that speak your soul. Because every
+                woman deserves to dress like she owns the moment.
+            </p>
+            <a href="#"
+                class="inline-block bg-white text-pink-600 px-10 py-5 rounded-full text-xl font-bold hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg">
+                Shop Now
+                <i data-lucide="shopping-bag" class="inline-block ml-3 icon"></i>
+            </a>
+        </div>
+    </section>
+    <!-- Product Details Section -->
+    <div id="product-details" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto overflow-y-auto"></div>
+    </div>
+    <!-- Zoomed Image Modal -->
+    <div id="zoomed-image" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+        <img id="zoomed-img-src" class="max-w-[90vw] max-h-[90vh]" alt="Zoomed Image">
+        <button id="close-zoomed" class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
+    </div>
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-gray-300 py-8 px-6 md:px-12 rounded-t-lg mt-8">
+        <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; 2025 Nexy Lara. All rights reserved.</p>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                <a href="#" class="hover:text-white transition duration-300">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+        const paymentMethods = document.getElementById('payment-methods');
+        const createAccountBtn = document.getElementById('create-account-btn');
+        const accountForm = document.getElementById('account-form');
+        const accountCreation = document.getElementById('account-creation');
+        const productListings = document.getElementById('product-listings');
+        const categoryTitle = document.getElementById('category-title');
+        const productsGrid = document.getElementById('products-grid');
+        const productDetails = document.getElementById('product-details');
+        const zoomedImage = document.getElementById('zoomed-image');
+        const zoomedImgSrc = document.getElementById('zoomed-img-src');
+        const closeZoomed = document.getElementById('close-zoomed');
+
+        // Sample products data with multiple images and descriptions
+        // Sample products data with multiple images and descriptions
+        const products = {
+            bridal: [
+                { id: 1, name: "Royal Gown and Dupatta Style", price: 2500, images: ["br9.jpg", "br8.jpg", "br7.png"], description: "A majestic royal gown with intricate dupatta style, perfect for grand weddings." },
+                { id: 2, name: "traditional bridal wear", price: 500, images: ["br3.jpg", "bridalwear1.jpg", "bridalwear2.jpg", "bridalwear3.jpg"], description: "Classic traditional bridal wear with hand-embroidered details." },
+                { id: 3, name: "Traditional Bridal wear", price: 535, images: ["br5.jpg", "br6.jpg", "br7.jpg", "br0.jpg"], description: "Elegant traditional bridal attire for timeless beauty." },
+                { id: 4, name: "Valima dress inspo for brides", price: 2500, images: ["br2.jpg", "br22.jpg", "br21.jpg"], description: "Inspiring Valima dress with luxurious fabrics and embellishments." },
+                { id: 5, name: "Valima dress inspo for brides", price: 2500, images: ["br23.jpg", "br24.jpg", "br25.jpg", "br28.jpg"], description: "Stunning Valima dress design for modern brides." },
+                { id: 6, name: " Imperial Long Tail Outfit Style", price: 2500, images: ["br26.jpg", "br38.jpg", "br55.jpg"], description: "Imperial style with long tail, ideal for royal weddings." },
+                { id: 7, name: "White Bridal Lehenga Shirt", price: 500, images: ["br27.jpg", "br41.jpg", "br31.jpg", "br1.webp", "br2.webp"], description: "Pure white bridal lehenga shirt with delicate embroidery." },
+                { id: 8, name: "Valima bride dress inspo", price: 2000, images: ["br29.jpg", "br48.jpg", "bru1.jpg"], description: "Timeless traditional bridal outfit for cultural ceremonies." },
+                { id: 9, name: "Valima dress inspo for brides", price: 2599, images: ["br30.jpg", "br34.jpg", "br40.jpg", "br43.jpg"], description: "Elegant Valima dress inspiration with modern twists." },
+                { id: 10, name: "Valima dress inspo for brides", price: 2599, images: ["br33.jpg", "br36.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 11, name: "Valima dress inspo for brides", price: 2599, images: ["br50.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 12, name: "Baraaat dress inspo for brides", price: 2999, images: ["br52.jpg", "br53.jpg", "br54.jpg", "br56.jpg"], description: "Beautiful barrat dress for brides seeking sophistication." },
+                { id: 13, name: "Valima dress inspo for brides", price: 2599, images: ["br37.jpg", "br46.jpg", "br47.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 14, name: "Valima dress inspo for brides", price: 2599, images: ["b.jpg", "b1.jpg", "b2.jpg", "b3.jpg", "bru.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 15, name: "Valima dress inspo for brides", price: 1599, images: ["b5.jpg", "b6.jpg", "b7.jpg", "b8.jpg", "b9.jpg", "b10.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 16, name: "Valima dress inspo for brides", price: 1599, images: ["b11.jpg", "b12.jpg", "b13.jpg", "b14.jpg", "b15.jpg", "b16.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 17, name: "Valima dress inspo for brides", price: 2599, images: ["b17.jpg", "b18.jpg", "b19.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 18, name: "Valima dress inspo for brides", price: 2599, images: ["b20.jpg", "b21.jpg", "b23.jpg", "b24.jpg", "b22.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 19, name: "Valima dress inspo for brides", price: 2599, images: ["g.jpg", "g1.jpg", "g2.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 20, name: "Valima dress inspo for brides", price: 2599, images: ["br39.jpg", "br42.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 21, name: "Valima dress inspo for brides", price: 2599, images: ["br44.jpg", "br45.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 22, name: "Valima dress inspo for brides", price: 2599, images: ["g3.jpg", "g4.jpg", "g5.jpg", "g6.jpg", "g7.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 23, name: "Valima dress inspo for brides", price: 2599, images: ["b.jpg", "br42.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 24, name: "Valima dress inspo for brides", price: 2099, images: ["g8.jpg", "g9.jpg", "g10.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 25, name: "Valima dress inspo for brides", price: 2599, images: ["a.jpg", "a1.jpg", "a2.jpg", "a3.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 26, name: "Barrat dress inspo for brides maids", price: 1500, images: ["a4.jpg", "a5.jpg"], description: "Beautiful barrat dress for brides maides seeking sophistication." },
+                { id: 27, name: " dress inspo", price: 1099, images: ["c1.jpg", "c2.jpg", "c3.jpg"], description: "Beautiful  dress for brides seeking sophistication." },
+                { id: 28, name: "Mehandi dress inspo for brides", price: 2599, images: ["c4.jpg", "c5.jpg", "c6.jpg", "c7.jpg"], description: "Beautiful Mehandi dress for brides seeking sophistication." },
+                { id: 29, name: "dress inspo ", price: 399, images: ["c8.jpg", "c9.jpg", "c10.jpg"], description: "Beautiful  dress for guest  seeking sophistication." },
+                { id: 30, name: "dress inspo ", price: 399, images: ["d.jpg", "d1.jpg"], description: "Beautiful  dress for guest  seeking sophistication." },
+                { id: 31, name: "dress inspo for ", price: 399, images: ["d2.jpg", "d4.jpg", "d5.jpg"], description: "Beautiful  dress for guest  seeking sophistication." },
+                { id: 32, name: "dress inspo ", price: 599, images: ["d3.jpg", "d6.jpg", "d7.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 33, name: "dress inspo ", price: 999, images: ["d8.jpg", "d9.jpg", "d10.jpg", "d11.jpg"], description: "Beautiful  dress for brides seeking sophistication." },
+                { id: 34, name: "dress inspo ", price: 599, images: ["e.jpg", "e1.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 35, name: "women luxury pret wear ", price: 399, images: ["e2.jpg", "e3.jpg", "e4.jpg", "e5.jpg", "e6.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 36, name: "dress inspo", price: 1099, images: ["e8.jpg", "e10.jpg", "e.webp", "e1.webp", "e3.webp"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 37, name: "dress inspo", price: 1099, images: ["e7.jpg", "e9.jpg"], description: "Beautiful Valima dress for brides seeking sophistication." },
+                { id: 38, name: "dress inspo", price: 399, images: ["f1.jpg", "f.jpg", "e11.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 39, name: "dress inspo", price: 399, images: ["f2.jpg", "f3.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 40, name: "dress inspo", price: 399, images: ["f4.jpg", "5.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 41, name: "dress inspo", price: 399, images: ["f6.jpg", "f7.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 42, name: "Pishwas Frock Lehenga Lime Green", price: 1599, images: ["f8.jpg", "f10.jpg", "f9.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 43, name: "dress inspo", price: 1599, images: ["h.jpg", "h1.jpg", "h2.jpg", "h3.jpg", "h4.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 44, name: "dress inspo", price: 1599, images: ["h5.jpg", "h6.jpg", "h7.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 45, name: "dress inspo", price: 888, images: ["h8.jpg", "h9.jpg", "h10.jpg", "h11.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 46, name: "dress inspo", price: 1099, images: ["i.jpg", "i1.jpg", "i2.jpg", "i3.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 47, name: "dress inspo", price: 1599, images: ["j.jpg", "j1.jpg", "j2.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 48, name: "dress inspo", price: 1099, images: ["j3.jpg", "j5.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 49, name: "dress inspo", price: 1599, images: ["j6.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 50, name: "dress inspo", price: 1099, images: ["j7.jpg", "j8.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 51, name: "dress inspo", price: 109, images: ["bili2.jpg"], description: "Beautiful dress seeking sophistication." },
+                { id: 52, name: "dress inspo", price: 209, images: ["b56.jpg"], description: "Beautiful dress seeking sophistication." },
+
+            ],
+            casual: [
+                { id: 11, name: "Casual dress", price: 100, images: ["causual.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 12, name: "Casual dress", price: 100, images: ["k.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 13, name: "Casual dress", price: 100, images: ["c13.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 14, name: "Casual dress", price: 100, images: ["c14.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 15, name: "Casual dress", price: 100, images: ["c15.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 16, name: "Casual dress", price: 100, images: ["c16.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 17, name: "Casual dress", price: 100, images: ["c17.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 18, name: "Casual dress", price: 100, images: ["c18.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 19, name: "Casual dress", price: 100, images: ["c19.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 20, name: "Casual dress", price: 100, images: ["c20.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 21, name: "Casual dress", price: 100, images: ["c21.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 22, name: "Casual dress", price: 100, images: ["c22.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 23, name: "Casual dress", price: 100, images: ["c23.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 24, name: "Casual dress", price: 100, images: ["c24.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 25, name: "Casual dress", price: 100, images: ["c25.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 26, name: "Casual dress", price: 100, images: ["c26.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 27, name: "Casual dress", price: 100, images: ["c27.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 28, name: "Casual dress", price: 100, images: ["c28.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 29, name: "Casual dress", price: 100, images: ["c29.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 30, name: "Casual dress", price: 100, images: ["c30.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 31, name: "Casual dress", price: 100, images: ["c31.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 32, name: "Casual dress", price: 100, images: ["c32.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 33, name: "Casual dress", price: 100, images: ["c33.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 34, name: "Casual dress", price: 100, images: ["c34.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 35, name: "Casual dress", price: 100, images: ["c35.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 36, name: "Casual dress", price: 100, images: ["c36.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 37, name: "Casual dress", price: 100, images: ["c37.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 38, name: "Casual dress", price: 100, images: ["c38.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 39, name: "Casual dress", price: 100, images: ["c39.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 40, name: "Casual dress", price: 100, images: ["c40.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 41, name: "Casual dress", price: 100, images: ["c41.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 42, name: "Casual dress", price: 100, images: ["c42.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 43, name: "Casual dress", price: 100, images: ["c43.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 44, name: "Casual dress", price: 100, images: ["c44.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 45, name: "Casual dress", price: 100, images: ["c45.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 46, name: "Casual dress", price: 100, images: ["c46.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 47, name: "Casual dress", price: 100, images: ["c47.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 48, name: "Casual dress", price: 100, images: ["c48.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 49, name: "Casual dress", price: 100, images: ["c49.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 50, name: "Casual dress", price: 100, images: ["c50.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 51, name: "Casual dress", price: 100, images: ["k1.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 52, name: "Casual dress", price: 100, images: ["k2.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 53, name: "Casual dress", price: 100, images: ["k3.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 54, name: "Casual dress", price: 100, images: ["k4.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 55, name: "Casual dress", price: 100, images: ["k5.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 56, name: "Casual dress", price: 100, images: ["k6.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 57, name: "Casual dress", price: 100, images: ["k7.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 58, name: "Casual dress", price: 100, images: ["k8.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 59, name: "Casual dress", price: 100, images: ["k9.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 60, name: "Casual dress", price: 100, images: ["k10.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 61, name: "Casual dress", price: 100, images: ["k11.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 62, name: "Casual dress", price: 100, images: ["k12.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 63, name: "Casual dress", price: 100, images: ["k13.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 64, name: "Casual dress", price: 100, images: ["k14.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 65, name: "Casual dress", price: 100, images: ["k15.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 66, name: "Casual dress", price: 100, images: ["k16.jpg"], description: "Comfortable casual suit for everyday wear." },
+                { id: 67, name: "Casual dress", price: 100, images: ["k17.jpg"], description: "Comfortable casual suit for everyday wear." }
+            ],
+            western: [
+                { id: 13, name: "Western Style dresses", price: 270, images: ["was.jpg"], description: "Classic western with  with modern fit." },
+                { id: 14, name: "Western Style dresses", price: 170, images: ["l2.jpg"], description: "Classic western with modern fit." },
+                { id: 15, name: "Western Style dresses", price: 170, images: ["l3.jpg"], description: "Classic western with modern fit." },
+                { id: 16, name: "Western Style dresses", price: 170, images: ["l4.jpg"], description: "Classic western with modern fit." },
+                { id: 17, name: "Western Style dresses", price: 70, images: ["l5.jpg"], description: "Classic western with modern fit." },
+                { id: 18, name: "Western Style dresses", price: 70, images: ["l6.jpg"], description: "Classic western with modern fit." },
+                { id: 19, name: "Western Style dresses", price: 70, images: ["l7.jpg"], description: "Classic western with modern fit." },
+                { id: 20, name: "Western Style dresses", price: 70, images: ["l8.jpg"], description: "Classic western with modern fit." },
+                { id: 21, name: "Western Style dresses", price: 70, images: ["l9.jpg"], description: "Classic western with modern fit." },
+                { id: 22, name: "Western Style dresses", price: 570, images: ["l10.jpg"], description: "Classic western with modern fit." },
+                { id: 23, name: "Western Style dresses", price: 570, images: ["l11.jpg"], description: "Classic western with modern fit." },
+                { id: 24, name: "Western Style dresses", price: 570, images: ["l12.jpg"], description: "Classic western with modern fit." },
+                { id: 25, name: "Western Style dresses", price: 570, images: ["l13.jpg", "l14.jpg"], description: "Classic western with modern fit." },
+                { id: 26, name: "Western Style dresses", price: 570, images: ["l16.jpg", "l17.jpg", "l18.jpg", "l19.jpg", "l20.jpg"], description: "Classic western with modern fit." },
+                { id: 27, name: "Western Style dresses", price: 570, images: ["l15.jpg"], description: "Classic western with modern fit." },
+                { id: 28, name: "Western Style dresses", price: 170, images: ["x.jpg"], description: "Classic western with modern fit." },
+                { id: 29, name: "Western Style dresses", price: 170, images: ["x1.jpg"], description: "Classic western with modern fit." },
+                { id: 30, name: "Western Style dresses", price: 170, images: ["x2.jpg"], description: "Classic western with modern fit." },
+                { id: 31, name: "Western Style dresses", price: 170, images: ["x3.jpg"], description: "Classic western with modern fit." },
+                { id: 32, name: "Western Style dresses", price: 170, images: ["x4.jpg"], description: "Classic western with modern fit." },
+                { id: 33, name: "Western Style dresses", price: 570, images: ["l21.jpg"], description: "Classic western with modern fit." },
+                { id: 34, name: "Western Style dresses", price: 570, images: ["l22.jpg", "l24.jpg"], description: "Classic western with modern fit." },
+                { id: 35, name: "Western Style dresses", price: 570, images: ["l23.jpg"], description: "Classic western with modern fit." },
+                { id: 36, name: "Western Style dresses", price: 170, images: ["x5.jpg"], description: "Classic western with modern fit." },
+                { id: 37, name: "Western Style dresses", price: 570, images: ["l25.jpg"], description: "Classic western with modern fit." },
+                { id: 38, name: "Western Style dresses", price: 570, images: ["l26.jpg"], description: "Classic western with modern fit." },
+                { id: 39, name: "Western Style dresses", price: 570, images: ["l27.jpg"], description: "Classic western with modern fit." },
+                { id: 40, name: "Western Style dresses", price: 570, images: ["l28.jpg"], description: "Classic western with modern fit." },
+                { id: 41, name: "Western Style dresses", price: 570, images: ["l29.jpg"], description: "Classic western with modern fit." },
+                { id: 42, name: "Western Style dresses", price: 570, images: ["l30.jpg"], description: "Classic western with modern fit." },
+                { id: 43, name: "Western Style dresses", price: 370, images: ["l31.jpg"], description: "Classic western with modern fit." },
+                { id: 44, name: "Western Style dresses", price: 570, images: ["l32.jpg"], description: "Classic western with modern fit." },
+                { id: 45, name: "Western Style dresses", price: 570, images: ["l33.jpg"], description: "Classic western with modern fit." },
+                { id: 46, name: "Western Style dresses", price: 370, images: ["l34.jpg"], description: "Classic western with modern fit." },
+                { id: 47, name: "Western Style dresses", price: 370, images: ["l35.jpg"], description: "Classic western with modern fit." },
+                { id: 48, name: "Western Style dresses", price: 370, images: ["l36.jpg"], description: "Classic western with modern fit." },
+                { id: 49, name: "Western Style dresses", price: 570, images: ["l37.jpg"], description: "Classic western with modern fit." },
+                { id: 50, name: "Western Style dresses", price: 570, images: ["l38.jpg"], description: "Classic western with modern fit." },
+                { id: 51, name: "Western Style dresses", price: 570, images: ["l39.jpg"], description: "Classic western with modern fit." },
+                { id: 52, name: "Western Style dresses", price: 570, images: ["l40.jpg", "l42.jpg"], description: "Classic western with modern fit." },
+                { id: 53, name: "Western Style dresses", price: 170, images: ["x6.jpg"], description: "Classic western with modern fit." },
+                { id: 54, name: "Western Style dresses", price: 370, images: ["l41.jpg"], description: "Classic western with modern fit." },
+                { id: 55, name: "Western Style dresses", price: 370, images: ["l43.jpg"], description: "Classic western with modern fit." },
+                { id: 56, name: "Western Style dresses", price: 270, images: ["l44.jpg"], description: "Classic western with modern fit." },
+                { id: 57, name: "Western Style dresses", price: 270, images: ["l45.jpg"], description: "Classic western with modern fit." },
+                { id: 58, name: "Western Style dresses", price: 370, images: ["l46.jpg", "l47.jpg", "l48.jpg"], description: "Classic western with modern fit." },
+                { id: 59, name: "Western Style dresses", price: 170, images: ["x7.jpg"], description: "Classic western with modern fit." },
+                { id: 60, name: "Western Style dresses", price: 170, images: ["x8.jpg"], description: "Classic western with modern fit." },
+                { id: 61, name: "Western Style dresses", price: 370, images: ["l49.jpg"], description: "Classic western with modern fit." },
+                { id: 62, name: "Western Style dresses", price: 270, images: ["l50.jpg"], description: "Classic western with modern fit." }
+            ],
+        };
+
+        // Show category collection
+        document.querySelectorAll('#categories a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.getAttribute('href').substring(1);
+                categoryTitle.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)} Collection`;
+                productsGrid.innerHTML = '';
+                products[category].forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'bg-white rounded-xl shadow-lg p-4 cursor-pointer';
+                    productCard.innerHTML = `
+                        <img src="${product.images[0]}" alt="${product.name}" class="w-full h-32 object-cover rounded">
+                        <h4 class="text-lg font-semibold mt-2">${product.name}</h4>
+                        <p class="text-gray-600">$${product.price.toFixed(2)}</p>
+                    `;
+                    productCard.addEventListener('click', () => showProductDetails(product));
+                    productsGrid.appendChild(productCard);
+                });
+                productListings.classList.remove('hidden');
+            });
+        });
+
+        // Show product details with main image, horizontal thumbnails below, details on side
+        function showProductDetails(product) {
+            const detailsContent = `
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                    <!-- Image Gallery (Left Side) -->
+                    <div>
+                        <img id="main-image" src="${product.images[0]}" alt="${product.name}" class="w-full h-96 object-cover rounded-lg cursor-zoom-in mb-4">
+                        <div class="flex overflow-x-auto space-x-2">
+                            ${product.images.map((img, index) => `
+                                <img src="${img}" alt="${product.name} thumbnail ${index + 1}" class="thumbnail w-24 h-24 object-cover rounded-lg cursor-pointer">
+                            `).join('')}
+                        </div>
+                    </div>
+                    <!-- Details (Right Side) -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4">${product.name}</h3>
+                        <p class="text-lg text-gray-600 mb-4">${product.description}</p>
+                        <p class="text-xl font-semibold text-gray-800 mb-4">$${product.price.toFixed(2)}</p>
+                        <a href="https://wa.me/+923196800056?text=Order inquiry for ${encodeURIComponent(product.name)} - Price: $${product.price.toFixed(2)}" target="_blank" class="block w-full bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 mb-2">Order via WhatsApp</a>
+                        <button id="close-details-btn" class="w-full bg-gray-600 text-white px-4 py-2 rounded-full hover:bg-gray-700">Close</button>
+                    </div>
+                </div>
+            `;
+            productDetails.innerHTML = detailsContent;
+            productDetails.classList.remove('hidden');
+            productListings.classList.add('hidden');
+
+            // Thumbnail click to update main image
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => {
+                    document.getElementById('main-image').src = thumbnail.src;
+                });
+            });
+
+            // Zoom functionality on main image
+            document.getElementById('main-image').addEventListener('click', () => {
+                zoomedImgSrc.src = document.getElementById('main-image').src;
+                zoomedImage.classList.remove('hidden');
+            });
+        }
+
+        // Close product details
+        productDetails.addEventListener('click', (e) => {
+            if (e.target.id === 'close-details-btn') {
+                productDetails.classList.add('hidden');
+                productListings.classList.remove('hidden');
+            }
+        });
+
+        // Close zoomed image
+        closeZoomed.addEventListener('click', () => {
+            zoomedImage.classList.add('hidden');
+        });
+
+        zoomedImage.addEventListener('click', (e) => {
+            if (e.target === zoomedImage) {
+                zoomedImage.classList.add('hidden');
+            }
+        });
+
+        // Account creation (backend required)
+        createAccountBtn.addEventListener('click', () => {
+            accountForm.classList.remove('hidden');
+        });
+
+        accountCreation.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(accountCreation);
+            try {
+                const response = await fetch('http://localhost:3000/api/account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        password: formData.get('password')
+                    })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    alert(data.message);
+                    accountForm.classList.add('hidden');
+                }
+            } catch (error) {
+                console.error('Error creating account:', error);
+                alert('Account creation failed. Please try again.');
+            }
+        });
+
+        document.getElementById('close-account-form').addEventListener('click', () => {
+            accountForm.classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>
